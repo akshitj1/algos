@@ -2,15 +2,20 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 
 	"github.com/akshitj1/algos/ds"
 )
 
 func main() {
-	tree := ds.BinarySearchTree{}
+	tree := ds.BalancedBinaryTree{}
 	vals := []int{1, 4, 5, 9, 12, 15}
-	tree.AddSortedArray(vals)
-	fmt.Println(tree)
-	foo := [3]int{1, 2, 3}
-	fmt.Printf("%v$%v#%v\n", foo)
+	rand.Shuffle(len(vals), func(i, j int) { vals[i], vals[j] = vals[j], vals[i] })
+	fmt.Printf("Insert order: %v\n", vals)
+	for _, v := range vals {
+		fmt.Println("inserting ", v)
+		tree.Insert(v)
+		fmt.Println(&tree)
+	}
+
 }
