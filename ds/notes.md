@@ -1,2 +1,3 @@
 - in pow(base, quotient) handle base==0 properly
 - in binary search evaluate fn goes from false->true return r else if true->false return l. make sure evaluate(l/r) agrees respectively
+- in merge sort take care of left or right exhaust. Either append \inf to l/r or handle in conditionals
