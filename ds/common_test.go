@@ -3,7 +3,7 @@ package ds
 import "testing"
 
 func TestTwoPointerSearch(t *testing.T) {
-	els := []int{1, 2, 3, 3, 4}
+	els := []int{1, 2, 3, 4, 4}
 	sum := 8
 	sumExists := TwoPointerSearch(els, sum)
 	if !sumExists {

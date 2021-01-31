@@ -1,3 +1,8 @@
-- in pow(base, quotient) handle base==0 properly
+- in pow(base, quotient) handle pow(0,0) properly
 - in binary search evaluate fn goes from false->true return r else if true->false return l. make sure evaluate(l/r) agrees respectively
 - in merge sort take care of left or right exhaust. Either append \inf to l/r or handle in conditionals
+- Complexity notations
+    - O notation is when we only have upper bound(0 lower bound), not necessarily tight
+    - \Theta notation if when we have both lower and upper bound.
+    - \Omega is when we only have lower bound
+- monotically (increasing/decreasign) (</>)=, strictly </>
