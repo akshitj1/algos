@@ -1,0 +1,2 @@
+- in pow(base, quotient) handle base==0 properly
+- in binary search evaluate fn goes from false->true return r else if true->false return l. make sure evaluate(l/r) agrees respectively
