@@ -41,9 +41,10 @@ func (h *Heap) Push(val int) {
 	h.els = append(h.els, val)
 	node := len(h.els) - 1
 	// heapify bottom up
-	for parent := h.parent(node); h.valid(parent) && h.els[parent] > h.els[node]; node, parent = parent, h.parent(parent) {
-		h.swap(node, parent)
-	}
+	h.heapify(node)
+	// for parent := h.parent(node); h.valid(parent) && h.els[parent] > h.els[node]; node, parent = parent, h.parent(parent) {
+	// 	h.swap(node, parent)
+	// }
 }
 
 func (h *Heap) Pop() int {
@@ -62,6 +63,13 @@ func (h *Heap) heapify(node int) {
 	if !h.valid(node) {
 		return
 	}
+	if parent := h.parent(node); h.valid(parent) && h.els[node] < h.els[parent] {
+		h.swap(node, parent)
+		h.heapify(parent)
+		// we assume that heapify is either up or down during master call
+		return
+	}
+
 	smallest := node
 	for _, evalNode := range []int{h.left(node), h.right(node)} {
 		if h.valid(evalNode) && h.els[smallest] > h.els[evalNode] {
