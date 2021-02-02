@@ -22,7 +22,7 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 	}
 }
 
-func arrayEquals(x, y []int) bool {
+func ArrayEquals(x, y []int) bool {
 	if len(x) != len(y) {
 		return false
 	}
@@ -38,7 +38,7 @@ func TestSortInts(t *testing.T) {
 	els := []int{2, 3, 10, 9, 1}
 	exp := []int{1, 2, 3, 9, 10}
 	got := SortInts(els)
-	if !arrayEquals(exp, got) {
+	if !ArrayEquals(exp, got) {
 		fmt.Printf("exp: %v, got: %v", exp, got)
 	}
 

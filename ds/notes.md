@@ -6,3 +6,6 @@
     - \Theta notation if when we have both lower and upper bound.
     - \Omega is when we only have lower bound
 - monotically (increasing/decreasign) (</>)=, strictly </>
+- heap property is parent<=child
+- build heap needs heapify only till floor(n/2). its \theta(n) time
+- heap sort -> swap root with last. logically reduce heap size to n-1. heapify on root
