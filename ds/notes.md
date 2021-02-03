@@ -9,7 +9,17 @@
 - heap property is parent<=child
 - build heap needs heapify only till floor(n/2). its \theta(n) time
 - heap sort -> swap root with last. logically reduce heap size to n-1. heapify on root
-
+- topological sort: dfs on each node. prepend to list when all childs visited
+- strongly connected components: 2 times dfs
+    - dfs(G), note finish times. G to transpose(G).
+    - dfs(transpose(G)) in order of decreasing finish times. emit each forest
+- minimum spanning tree. prims alog: keep picking minimum edge ie. curretly reachable(priority queue)
+- negative weights, non-dag shortest path. bellman ford: repeat |V|-1 times: for all E update node weights(only reachable from source works fine)
+    - negative cycle. at end of above - no node should further reduce ie. w(u)+w(v,v) < w(v)
+    - O(V*E) time
+- dag with negative weights shortest path: dfs from source. tightening weights of nodes(O(E+V))
+- Dijkstra: keep doing 1 level bfs repeatedly on minimum weight node. mark visited after bfs done
 # todo:
 - implement nth order select(ith median)
 - study manacher's algo(low priority)
+- how do we access node to its position in heap/pq?
