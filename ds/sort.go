@@ -16,9 +16,15 @@ func (x Ints) Len() int {
 	return len(x)
 }
 
-// SortInts sorts integers
+// SortInts is example for custom sorting
 func SortInts(els []int) []int {
 	sortedEls := els
 	sort.Sort(Ints(sortedEls))
 	return sortedEls
+}
+
+// Sort uses STL function without need for defining interface functions
+func Sort(els []int) []int {
+	sort.Ints(els)
+	return els
 }

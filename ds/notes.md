@@ -9,3 +9,7 @@
 - heap property is parent<=child
 - build heap needs heapify only till floor(n/2). its \theta(n) time
 - heap sort -> swap root with last. logically reduce heap size to n-1. heapify on root
+
+# todo:
+- implement nth order select(ith median)
+- study manacher's algo(low priority)

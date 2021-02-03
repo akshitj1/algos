@@ -1,5 +1,29 @@
 package ds
 
+import (
+	"sort"
+)
+
+type IntHeap struct {
+	sort.IntSlice
+}
+
+func (x *IntHeap) Push(v int) {
+	*x = IntHeap{append(x.IntSlice, v)}
+}
+
+func (x *IntHeap) Pop() int {
+	v := x.IntSlice[x.Len()-1]
+	*x = IntHeap{x.IntSlice[:x.Len()-1]}
+	return v
+}
+
+// HeapSTL demonstrates use of heap stl
+func HeapSTL(els []int) {
+	// h := IntHeap{els}
+	// heap.Init(h)
+}
+
 // Min Heap
 type Heap struct {
 	els []int
