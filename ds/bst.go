@@ -3,20 +3,20 @@ package ds
 import "fmt"
 
 // Node is node for BinarySearchTree
-type Node struct {
+type node struct {
 	Data  int
-	Left  *Node
-	Right *Node
+	Left  *node
+	Right *node
 }
 
 // BinarySearchTree data structure
 type BinarySearchTree struct {
-	root *Node
+	root *node
 }
 
-func Add(nd *Node, x int) *Node {
+func Add(nd *node, x int) *node {
 	if nd == nil {
-		nd = &Node{x, nil, nil}
+		nd = &node{x, nil, nil}
 	} else if x <= nd.Data {
 		nd.Left = Add(nd.Left, x)
 	} else {
@@ -30,7 +30,7 @@ func (t *BinarySearchTree) Add(x int) {
 	t.root = Add(t.root, x)
 }
 
-func inorder(nd *Node) []int {
+func inorder(nd *node) []int {
 	if nd == nil {
 		return []int{}
 	}
@@ -40,7 +40,7 @@ func inorder(nd *Node) []int {
 	return vals
 }
 
-func preorder(nd *Node) []int {
+func preorder(nd *node) []int {
 	if nd == nil {
 		return []int{}
 	}
@@ -54,12 +54,12 @@ func (t BinarySearchTree) String() string {
 	return fmt.Sprintf("%v", preorder(t.root))
 }
 
-func addSortedArray(nd *Node, vals []int) *Node {
+func addSortedArray(nd *node, vals []int) *node {
 	if len(vals) == 0 {
 		return nil
 	}
 	rootIdx := len(vals) / 2
-	nd = &Node{vals[rootIdx], nil, nil}
+	nd = &node{vals[rootIdx], nil, nil}
 	nd.Left = addSortedArray(nd.Left, vals[:rootIdx])
 	nd.Right = addSortedArray(nd.Right, vals[rootIdx+1:])
 	return nd
