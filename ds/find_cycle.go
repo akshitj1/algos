@@ -1,14 +1,14 @@
 package ds
 
-type State int
+type TopologicalState int
 
 const (
-	S State = iota
+	S TopologicalState = iota
 	P
 	C
 )
 
-func isCycle(u int, s []State, g [][]int) bool {
+func isCycle(u int, s []TopologicalState, g [][]int) bool {
 	if s[u] == C {
 		return false
 	}
@@ -30,7 +30,7 @@ func isCycle(u int, s []State, g [][]int) bool {
 // https://leetcode.com/problems/course-schedule
 func canFinish(numCourses int, prerequisites [][]int) bool {
 	g := make([][]int, numCourses)
-	s := make([]State, numCourses)
+	s := make([]TopologicalState, numCourses)
 	for _, e := range prerequisites {
 		v, u := e[0], e[1]
 		g[u] = append(g[u], v)
