@@ -1,27 +1,29 @@
 package ds
 
 import (
-	"sort"
+	"container/heap"
 )
 
-type IntHeap struct {
-	sort.IntSlice
-}
+type IntHeap []int
 
-func (x *IntHeap) Push(v int) {
-	*x = IntHeap{append(x.IntSlice, v)}
-}
-
-func (x *IntHeap) Pop() int {
-	v := x.IntSlice[x.Len()-1]
-	*x = IntHeap{x.IntSlice[:x.Len()-1]}
-	return v
+func (h IntHeap) Len() int            { return len(h) }
+func (h IntHeap) Less(i, j int) bool  { return h[i] < h[j] }
+func (h IntHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+func (h *IntHeap) Push(x interface{}) { *h = append(*h, x.(int)) }
+func (h *IntHeap) Pop() interface{} {
+	topEl := (*h)[len(*h)-1]
+	*h = (*h)[0 : len(*h)-1]
+	return topEl
 }
 
 // HeapSTL demonstrates use of heap stl
 func HeapSTL(els []int) {
-	// h := IntHeap{els}
-	// heap.Init(h)
+	h := &IntHeap{}
+	heap.Push(h, 0)
+	heap.Push(h, 2)
+	heap.Push(h, 1)
+	minEl := heap.Pop(h)
+	_ = minEl
 }
 
 // Min Heap
