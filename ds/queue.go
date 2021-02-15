@@ -4,6 +4,10 @@ type Queue struct {
 	els []int
 }
 
+func NewQueue() *Queue {
+	return &Queue{make([]int, 0)}
+}
+
 func (q *Queue) Tail() (int, bool) {
 	if q.Empty() {
 		return 0, false
